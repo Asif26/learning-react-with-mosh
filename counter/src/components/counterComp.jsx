@@ -3,16 +3,26 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 0,
-    tag:['tage1','tage2','tage3','tage3']
+    tag: ["Hello","Hi","Janu",],
   };
+  IfHandeler() {
+    if (this.state.tag.length === 0) return <p>"Their is no tag"</p>;
+    return (
+      <ul>
+        {this.state.tag.map((tag, key) => (
+          <li key={`index-${key}`}>{tag}</li>
+        ))}
+      </ul>
+    );
+  }
   render() {
     return (
       <>
         <span className={this.getBageClasses()}> {this.formatCount()} </span>
         <button className="btn btn-secondary btn-sm">Increment</button>
-        <ul>
-            {this.state.tag.map((tag, key) => <li key={`index-${key}`}>{tag}</li>)}
-        </ul>
+
+        {this.IfHandeler()}
+        {this.state.tag.length === 0 && "Please Input tag"}
       </>
     );
   }
