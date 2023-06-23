@@ -15,11 +15,14 @@ class Counter extends Component {
       </ul>
     );
   }
+  handleIncrement = ()=> {
+    this.setState({count: this.state.count+1})
+  }
   render() {
     return (
       <>
         <span className={this.getBageClasses()}> {this.formatCount()} </span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
+        <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
 
         {this.IfHandeler()}
         {this.state.tag.length === 0 && "Please Input tag"}
